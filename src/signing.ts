@@ -19,7 +19,7 @@ export async function signApkFile(
     const androidHome = process.env.ANDROID_HOME;
     const buildTools = path.join(androidHome!, `build-tools/${buildToolsVersion}`);
     if (!fs.existsSync(buildTools)) {
-        core.error(`Couldnt find the Android build tools @ ${buildTools}`)
+        core.error(`Couldn't find the Android build tools @ ${buildTools}`)
     }
 
     const zipAlign = path.join(buildTools, 'zipalign');

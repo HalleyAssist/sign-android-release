@@ -7,7 +7,7 @@ import * as io from "./io-utils";
 async function run() {
   try {
     if (process.env.DEBUG_ACTION === 'true') {
-      core.debug("DEBUG FLAG DETECTED, SHORTCUTTING ACTION.")
+      core.debug("DEBUG FLAG DETECTED, SHORT-CUTTING ACTION.")
       return;
     }
 
@@ -55,7 +55,7 @@ async function run() {
       core.exportVariable(`NOF_SIGNED_RELEASE_FILES`, `${signedReleaseFiles.length}`);
       core.setOutput(`nofSignedReleaseFiles`, `${signedReleaseFiles.length}`);
 
-      // When there is one and only one signed release file, stoire it in a specific variable + output.
+      // When there is one and only one signed release file, store it in a specific variable + output.
       if (signedReleaseFiles.length == 1) {
         core.exportVariable(`SIGNED_RELEASE_FILE`, signedReleaseFiles[0]);
         core.setOutput('signedReleaseFile', signedReleaseFiles[0]);
@@ -66,7 +66,7 @@ async function run() {
       core.setFailed('No release files (.apk or .aab) could be found.');
     }
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed((error as Error).message);
   }
 }
 
